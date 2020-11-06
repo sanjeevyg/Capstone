@@ -5,11 +5,11 @@ import { View, Text, Button } from 'react-native';
 const DetailsScreen = ({navigation}) => {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>DetailsScreen</Text>
-        <Button
+        <Text>Watch Specifications</Text>
+        {/* <Button
             title='Go to details screen...again'
             onPress={() => navigation.push('Details')}
-        />
+        /> */}
         <Button
             title="Go to home"
             onPress={() => navigation.navigate('Home')}
@@ -18,10 +18,10 @@ const DetailsScreen = ({navigation}) => {
             title="Go back"
             onPress={() => navigation.goBack()}
         />
-        <Button
+        {/* <Button
             title="Go to the first screen"
             onPress={() => navigation.popToTop()}
-        />
+        /> */}
       </View>
       
     );

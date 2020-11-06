@@ -3,7 +3,7 @@ import * as React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 
 
-const ExploreScreen = ({navigation}) => {
+const ArScreen = ({navigation}) => {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' , color: '#2EC4B6'}}>
         <Text>Augemented Reality</Text> 
@@ -15,10 +15,10 @@ const ExploreScreen = ({navigation}) => {
     );
   }
 
-  export default ExploreScreen
+  export default ArScreen
 
   // const styles = StyleSheet.create({
   //     conainter: {
   //       flex: 1, alignItems: 'center', justifyContent: 'center' , color: '#2EC4B6'
   //     }
-  // })
+  // })s

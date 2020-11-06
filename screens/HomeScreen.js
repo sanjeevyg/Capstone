@@ -7,7 +7,6 @@ const image = { uri: "https://i.pinimg.com/736x/dd/d3/26/ddd3263f0f099c331077197
 const HomeScreen = ({navigation}) => {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' , color: '#2EC4B6'}}>
-        {/* <Text>Home Screen</Text>  */}
             <View style={styles.container}>
                 <ImageBackground source={image} style={styles.image}>
                       <Text style={styles.text}>Wonderful Watches</Text>

@@ -8,11 +8,11 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './HomeScreen'
 import DetailsScreen from './DetailsScreen'
 import ProfileScreen from './ProfileScreen'
-import ExploreScreen from './ExploreScreen'
+import ArScreen from './ArScreen'
 import ShopScreen from './ShopScreen'
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faBars, faEye, faHome, faInfoCircle, faUserCircle, faVrCardboard, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faSignOutAlt,  faHome, faInfoCircle, faUserCircle, faVrCardboard, faShoppingCart, faAlignJustify } from '@fortawesome/free-solid-svg-icons';
 
 // const Tab = createBottomTabNavigator();
 const Tab = createMaterialBottomTabNavigator();
@@ -66,10 +66,10 @@ const MainTabScreen = () => (
           />
           <Tab.Screen
             name="Explore"
-            component={ExploreStackScreen}
+            component={ArStackScreen}
             options={{
               tabBarLabel: 'Try It',
-              tabBarColor: '#FFFFFF',
+              tabBarColor: '#8F8F8F',
               tabBarIcon: ({ color, size }) => (
                 <FontAwesomeIcon icon={ faVrCardboard} color={color}  size={20} />
               ),
@@ -84,7 +84,7 @@ export default MainTabScreen
 const HomeStack = createStackNavigator();
 const DetailsStack = createStackNavigator();
 const ProfileStack = createStackNavigator();
-const ExploreStack = createStackNavigator();
+const ArStack = createStackNavigator();
 const ShopStack = createStackNavigator();
 
 const HomeStackScreen = ({navigation}) => (
@@ -101,7 +101,7 @@ const HomeStackScreen = ({navigation}) => (
       name="Home" 
       component={HomeScreen}
       options={{title: 'Home', headerLeft: () => (
-        <FontAwesomeIcon icon={ faBars} size={20}    marginLeft={15} backgroundColor='#183059' color= '#fff' onPress={() => navigation.openDrawer()} />
+        <FontAwesomeIcon icon={faBars} size={23}    marginLeft={15} backgroundColor='#183059' color= '#fff' onPress={() => navigation.openDrawer()} />
       )}}
       />
     </HomeStack.Navigator>
@@ -136,10 +136,10 @@ const HomeStackScreen = ({navigation}) => (
     </ProfileStack.Navigator>
   )
 
-  const ExploreStackScreen = ({navigation}) => (
-    <ExploreStack.Navigator screenOptions={{
+  const ArStackScreen = ({navigation}) => (
+    <ArStack.Navigator screenOptions={{
         headerStyle: {
-          backgroundColor: '#FFFFFF'
+          backgroundColor: '#8F8F8F'
         }, 
         headerTintColor: '#0A0A0A',
         // inactiveColor: '#0A0A0A',
@@ -147,8 +147,8 @@ const HomeStackScreen = ({navigation}) => (
           fontWeight: 'bold'
         }
       }}>
-      <ExploreStack.Screen name="Explore" component={ExploreScreen} options={{title: 'Augmented Reality Page'}} />
-    </ExploreStack.Navigator>
+      <ArStack.Screen name="Explore" component={ArScreen} options={{title: 'Augmented Reality Page'}} />
+    </ArStack.Navigator>
   )
 
   const ShopStackScreen = ({navigation}) => (

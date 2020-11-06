@@ -31,7 +31,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import MainTabScreen from './screens/MainTabSceen';
+import BottomTabScreen from './screens/BottomTabScreen';
 
 
 const Drawer = createDrawerNavigator();
@@ -42,7 +42,7 @@ const App = () => {
   return (
     <NavigationContainer>
        <Drawer.Navigator drawerContent={props => <DrawerContent {... props}/>}>
-        <Drawer.Screen name="Home" component={MainTabScreen} />
+        <Drawer.Screen name="MainDrawer" component={BottomTabScreen} />
         {/* <Drawer.Screen name="Details" component={DetailsStackScreen} /> */}
        </Drawer.Navigator>
     </NavigationContainer>

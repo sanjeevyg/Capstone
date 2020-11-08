@@ -2,16 +2,17 @@ import * as React from 'react';
 import { View, Text, Button } from 'react-native';
 
 
-const ShopScreen = ({navigation}) => {
+
+const PreferencesScreen = ({navigation}) => {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' , color: '#2EC4B6'}} >
-        <Text>Shop</Text>
+        <Text>Preferences</Text> 
         <Button
-            title="Explore"
-            onPress={() => navigation.navigate('Explore')}
-        /> 
+            title="Preferences"
+            onPress={() => navigation.navigate('Shop')}
+        />
       </View>
     );
   }
 
-  export default ShopScreen
+  export default PreferencesScreen

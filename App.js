@@ -32,21 +32,25 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import BottomTabScreen from './screens/BottomTabScreen';
+import ProfileScreen from './screens/ProfileScreen';
+import RootStackScreen from './screens/RootStackScreen';
 
 
 const Drawer = createDrawerNavigator();
 
 
-
 const App = () => {
   return (
     <NavigationContainer>
-       <Drawer.Navigator drawerContent={props => <DrawerContent {... props}/>}>
-        <Drawer.Screen name="MainDrawer" component={BottomTabScreen} />
-        {/* <Drawer.Screen name="Details" component={DetailsStackScreen} /> */}
-       </Drawer.Navigator>
+       {/* <Drawer.Navigator drawerContent={props => <DrawerContent {... props}/>}>
+            <Drawer.Screen name="MainDrawer" component={BottomTabScreen} />
+            <Drawer.Screen name="Profile" component={ProfileScreen} />
+       </Drawer.Navigator>  */}
+       <RootStackScreen/>
     </NavigationContainer>
   );
 }
+
+
 
 export default App;

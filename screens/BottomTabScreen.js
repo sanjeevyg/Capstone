@@ -7,7 +7,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import HomeScreen from './HomeScreen'
 import DetailsScreen from './DetailsScreen'
-import ProfileScreen from './ProfileScreen'
 import ArScreen from './ArScreen'
 import ShopScreen from './ShopScreen'
 
@@ -21,7 +20,6 @@ const MainTabScreen = () => (
         <Tab.Navigator
           initialRouteName="Home"
           tabBarOptions={{
-            // activeBackgroundColor: '#ABBDD9',
             activeTintColor: '#9CADFC',
             inactiveTintColor: '#FFFFFF',
             style: {
@@ -53,7 +51,7 @@ const MainTabScreen = () => (
             }}
           />
           <Tab.Screen
-            name="Profile"
+            name="Shop"
             component={ShopStackScreen}
             options={{
               tabBarLabel: 'Cart',
@@ -83,7 +81,7 @@ export default MainTabScreen
 
 const HomeStack = createStackNavigator();
 const DetailsStack = createStackNavigator();
-const ProfileStack = createStackNavigator();
+
 const ArStack = createStackNavigator();
 const ShopStack = createStackNavigator();
 
@@ -122,19 +120,6 @@ const HomeStackScreen = ({navigation}) => (
   )
 
 
-  const ProfileStackScreen = ({navigation}) => (
-    <ProfileStack.Navigator screenOptions={{
-        headerStyle: {
-          backgroundColor: '#000411'
-        }, 
-        headerTintColor: '#fff',
-        headerTitleStyle: {
-          fontWeight: 'bold'
-        }
-      }}>
-      <ProfileStack.Screen name="Profile" component={ProfileScreen} />
-    </ProfileStack.Navigator>
-  )
 
   const ArStackScreen = ({navigation}) => (
     <ArStack.Navigator screenOptions={{

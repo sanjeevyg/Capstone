@@ -3,7 +3,7 @@ import { View, Text, Button, StyleSheet, TextInput, TouchableOpacity, } from 're
 import * as Animatable from 'react-native-animatable';
 import { useTheme } from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
-import { User, Lock, CheckCircle, EyeOff, Eye} from "react-native-feather";
+import { User, Lock, CheckCircle, EyeOff, Eye, CheckSquare} from "react-native-feather";
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faUserAlt, faCheckCircle, faBars, faSignOutAlt,  faHome, faInfoCircle, faUserCircle, faVrCardboard, faShoppingCart, faAlignJustify } from '@fortawesome/free-solid-svg-icons';
 
@@ -12,23 +12,23 @@ import { faUserAlt, faCheckCircle, faBars, faSignOutAlt,  faHome, faInfoCircle, 
 const SignInScreen = ({navigation}) => {
 
     const [userInfo, setUserInfo] = React.useState({
-      email:'',
+      username:'',
       password:'',
       textInputStatus: false,
       secureTextEntry: true
     })
 
-    const handleEmailChange = (val) => {
+    const handleUsernameChange = (val) => {
       if (val.length > 0) {
         setUserInfo({
           ...userInfo,
-          email: val,
+          username: val,
           textInputStatus: true
          })
       } else {
         setUserInfo({
           ...userInfo,
-          email: val,
+          username: val,
           textInputStatus: false
          })
       }
@@ -39,13 +39,13 @@ const SignInScreen = ({navigation}) => {
       if (val.length > 0) {
         setUserInfo({
           ...userInfo,
-          email: val,
-          textInputStatus: true
+          username: val
+          // textInputStatus: true
          })
       } else {
         setUserInfo({
           ...userInfo,
-          email: val,
+          username: val,
           textInputStatus: false
          })
       }
@@ -65,13 +65,13 @@ const SignInScreen = ({navigation}) => {
             <Text style={styles.text_header}>Welcome!</Text>
         </View>
         <View style={styles.footer}>
-            <Text style={styles.text_footer}>Email</Text>
+            <Text style={styles.text_footer}>Username</Text>
 
             <View>
-              <View style={styles.email}>
+              <View style={styles.username}>
                 <User stroke="#05375a" fill="#fff" width={23} height={23} />  
-                <TextInput placeholder="Email" style={styles.textInput} onChangeText={(val)=>handleEmailChange(val)} autoCapitalize='none'/>
-                {userInfo.textInputStatus ? <CheckCircle stroke="green" fill="#fff" width={19} height={19} /> : null}
+                <TextInput placeholder="Username" style={styles.textInput} onChangeText={(val)=>handleUsernameChange(val)} autoCapitalize='none'/>
+                {userInfo.textInputStatus ? <CheckCircle stroke="green" width={19} height={19} /> : null}
               </View>
             </View>
 
@@ -142,7 +142,7 @@ const SignInScreen = ({navigation}) => {
         color: '#05375a',
         fontSize: 18
     },
-    email: {
+    username: {
         flexDirection: 'row',
         marginTop: 10,
         borderBottomWidth: 1,

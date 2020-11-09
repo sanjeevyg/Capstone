@@ -9,10 +9,10 @@ import { faUserAlt, faCheckCircle, faBars, faSignOutAlt,  faHome, faInfoCircle, 
 
 
 
-const SignInScreen = ({navigation}) => {
+const SignUpScreen = ({navigation}) => {
 
     const [userInfo, setUserInfo] = React.useState({
-      email:'',
+      username:'',
       password:'',
       confirm_password: '',
       textInputStatus: false,
@@ -20,17 +20,17 @@ const SignInScreen = ({navigation}) => {
       secureTextEntryConfirm: true
     })
 
-    const handleEmailChange = (val) => {
+    const handleUsernameChange = (val) => {
       if (val.length > 0) {
         setUserInfo({
           ...userInfo,
-          email: val,
+          username: val,
           textInputStatus: true
          })
       } else {
         setUserInfo({
           ...userInfo,
-          email: val,
+          username: val,
           textInputStatus: false
          })
       }
@@ -74,12 +74,12 @@ const SignInScreen = ({navigation}) => {
             <Text style={styles.text_header}>Register!</Text>
         </View>
         <View style={styles.footer}>
-            <Text style={styles.text_footer}>Email</Text>
+            <Text style={styles.text_footer}>Username</Text>
 
             <View>
-              <View style={styles.email}>
+              <View style={styles.username}>
                 <User stroke="#05375a" fill="#fff" width={23} height={23} />  
-                <TextInput placeholder="Email" style={styles.textInput} onChangeText={(val)=>handleEmailChange(val)} autoCapitalize='none'/>
+                <TextInput placeholder="Username" style={styles.textInput} onChangeText={(val)=>handleUsernameChange(val)} autoCapitalize='none'/>
                 {userInfo.textInputStatus ? <CheckCircle stroke="#276891" fill="#fff" width={19} height={19} /> : null}
               </View>
             </View>
@@ -133,7 +133,7 @@ const SignInScreen = ({navigation}) => {
     );
   }
 
-  export default SignInScreen
+  export default SignUpScreen
 
   const styles = StyleSheet.create({
     container: {
@@ -163,7 +163,7 @@ const SignInScreen = ({navigation}) => {
         color: '#05375a',
         fontSize: 18
     },
-    email: {
+    username: {
         flexDirection: 'row',
         marginTop: 10,
         borderBottomWidth: 1,

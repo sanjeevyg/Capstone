@@ -7,7 +7,8 @@
  */
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
-import * as React from 'react';
+// import * as React from 'react';
+import React, {useReducer} from 'react'
 
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
@@ -38,8 +39,22 @@ import RootStackScreen from './screens/RootStackScreen';
 
 const Drawer = createDrawerNavigator();
 
+const ACTIONS = {
+  AUTHORIZED: 'authorized',
+  SIGNUP: 'signUp'
+}
+
+function reducer(state, action) {
+  switch (action.type) {
+    case ACTIONS.SIGNIN:
+      return "hello world"
+  }
+
+}
 
 const App = () => {
+
+  const [state, dispatch] = React.useReducer(reducer, {token: null})
   return (
     <NavigationContainer>
        {/* <Drawer.Navigator drawerContent={props => <DrawerContent {... props}/>}>

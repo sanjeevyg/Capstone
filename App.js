@@ -1,47 +1,20 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
-// import * as React from 'react';
-import React, {useReducer} from 'react'
-
+import React, {useReducer, useContext} from 'react'
 import { createDrawerNavigator } from '@react-navigation/drawer';
-
 import { DrawerContent } from './screens/DrawerContent';
-
-
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
-
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 
 import BottomTabScreen from './screens/BottomTabScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import SignInScreen from './screens/SignInScreen';
 import RootStackScreen from './screens/RootStackScreen';
-
+import { set } from 'react-native-reanimated';
 
 const Drawer = createDrawerNavigator();
 
 const ACTIONS = {
-  AUTHORIZED: 'authorized',
-  SIGNUP: 'signUp'
+  SIGNIN: 'signIn',
+  SIGNOUT: 'signOut'
 }
 
 function reducer(state, action) {
@@ -49,23 +22,27 @@ function reducer(state, action) {
     case ACTIONS.SIGNIN:
       return "hello world"
   }
-
 }
+export const UserContext = React.createContext()
 
 const App = () => {
 
-  const [state, dispatch] = React.useReducer(reducer, {token: null})
-  return (
+  const [userToken, setNewUserToken] = React.useState(null)
+  const [state, dispatch] = React.useReducer(reducer, null)
+  
+  return (  
     <NavigationContainer>
-       {/* <Drawer.Navigator drawerContent={props => <DrawerContent {... props}/>}>
-            <Drawer.Screen name="MainDrawer" component={BottomTabScreen} />
-            <Drawer.Screen name="Profile" component={ProfileScreen} />
-       </Drawer.Navigator>  */}
-       <RootStackScreen/>
+      <UserContext.Provider value={[userToken, setNewUserToken]}>
+          {userToken ? 
+          <Drawer.Navigator drawerContent={props => <DrawerContent {...props}/>}>
+                <Drawer.Screen name="MainDrawer" component={BottomTabScreen} />
+                <Drawer.Screen name="Profile" component={ProfileScreen} />
+          </Drawer.Navigator> :
+          <RootStackScreen/>
+          }    
+      </UserContext.Provider>
     </NavigationContainer>
   );
 }
-
-
 
 export default App;

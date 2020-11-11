@@ -12,7 +12,6 @@ const baseURL = "http://localhost:3000"
 
 const SignUpScreen = ({navigation}) => {
 
-
     const [userInfo, setUserInfo] = React.useState({
       name: '',
       email: '',
@@ -25,7 +24,6 @@ const SignUpScreen = ({navigation}) => {
       secureTextEntry: true,
       secureTextEntryConfirm: true
     })
-
 
     const handleUsernameChange = (val) => {
       if (val.length > 0) {
@@ -123,7 +121,6 @@ const SignUpScreen = ({navigation}) => {
       } 
     }
   
-
     return (
       <View style={styles.container} >
         <View style={styles.header}>

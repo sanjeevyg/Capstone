@@ -1,10 +1,14 @@
-import * as React from 'react';
-import { View, StyleSheet} from 'react-native';
+import React, {useContext} from 'react';
+import { View, StyleSheet, ScrollView} from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faBars, faAlignJustify, faIndent, faSignOutAlt, faEye, faHome, faInfoCircle, faUserCircle, faUserCog } from '@fortawesome/free-solid-svg-icons';
 import { Avatar, Title, Caption, Paragraph, Drawer, Text, TouchableRipple, Switch} from 'react-native-paper';
 import { DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 import { CardStyleInterpolators } from '@react-navigation/stack';
+import {UserContext} from '../App';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import RootStackScreen from './RootStackScreen';
+import SplashScreen from './SplashScreen';
 
 
 
@@ -14,9 +18,18 @@ export function DrawerContent(props) {
     let pic = {uri: "https://static.wikia.nocookie.net/civilization/images/5/53/Genghis_Khan_%28Civ6%29.png/revision/latest/top-crop/width/360/height/360?cb=20200930125057"}
 
     const[isDarkTheme, setIsDarkTheme] = React.useState(false);
+    const [userToken, setNewUserToken] = useContext(UserContext)
+   
 
     const toggleTheme = () => {
         setIsDarkTheme(!isDarkTheme)
+    }
+
+    const handleSignOut = () => {
+      AsyncStorage.removeItem("userToken")
+      setNewUserToken({token: null})
+      console.log(userToken)
+      props.navigation.navigate('SignInScreen')
     }
 
     return(
@@ -79,7 +92,7 @@ export function DrawerContent(props) {
                     <FontAwesomeIcon icon={ faSignOutAlt} color={color} size={20} />
                       )}
                     label="Sign Out"
-                    onPress={() => {}}
+                    onPress={handleSignOut}
                 />
             </Drawer.Section>
         </View>

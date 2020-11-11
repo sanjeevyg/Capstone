@@ -40,7 +40,14 @@ const ProfileStack = createStackNavigator();
 const ProfileStackScreen = ({navigation}) => (
     <ProfileStack.Navigator screenOptions={{
         headerStyle: {
-          backgroundColor: '#000411'
+          backgroundColor: '#276891'
+        }, 
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold'
+        }, 
+        footerStyle: {
+          backgroundColor: '#276891'
         }, 
         headerTintColor: '#fff',
         headerTitleStyle: {

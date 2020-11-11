@@ -1,9 +1,12 @@
 
 import * as React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
+// import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
+
 
 
 const ArScreen = ({navigation}) => {
+ 
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' , color: '#2EC4B6'}}>
         <Text>Augemented Reality</Text> 
@@ -17,8 +20,4 @@ const ArScreen = ({navigation}) => {
 
   export default ArScreen
 
-  // const styles = StyleSheet.create({
-  //     conainter: {
-  //       flex: 1, alignItems: 'center', justifyContent: 'center' , color: '#2EC4B6'
-  //     }
-  // })s
+ 

@@ -23,7 +23,7 @@ const SplashScreen = ({navigation}) => {
             <Animatable.Image 
                 animation="bounceIn"
                 duraton="1500"
-                source={require('../Images/Watch.jpg')}
+                source={require('../Images/logo.png')}
                 style={styles.logo}
                 resizeMode="stretch"
             />
@@ -39,7 +39,7 @@ const SplashScreen = ({navigation}) => {
             }]}>Get yourself a watch!</Text>
             <Text style={styles.text}>Sign in with account</Text>
             <View style={styles.button}>
-            <TouchableOpacity onPress={()=>navigation.navigate('SignInScreen')}>
+            <TouchableOpacity onPress={()=>navigation.navigate('SignInScreen')} style={styles.getStarted}>
                 <LinearGradient
                     colors={['#276891', '#1B4965']}
                     style={styles.signIn}
@@ -68,6 +68,13 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center'
   },
+  getStarted: {
+    flex: 2,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 100,
+    marginTop: 50
+  },
   footer: {
       flex: 1,
       backgroundColor: '#fff',
@@ -77,18 +84,21 @@ const styles = StyleSheet.create({
       paddingHorizontal: 30
   },
   logo: {
-      width: height_logo,
+      width: height_logo*1.2,
       height: height_logo,
-      borderRadius: height_logo/2
+      marginLeft: 20
+    //   borderRadius: height_logo/2
   },
   title: {
       color: '#05375a',
       fontSize: 30,
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      marginLeft: 20
   },
   text: {
       color: 'grey',
-      marginTop:5
+      marginTop:5,
+      marginLeft: 110
   },
   button: {
       alignItems: 'flex-end',

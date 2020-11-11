@@ -13,7 +13,6 @@ import ShopScreen from './ShopScreen'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faBars, faSignOutAlt,  faHome, faInfoCircle, faUserCircle, faVrCardboard, faShoppingCart, faAlignJustify } from '@fortawesome/free-solid-svg-icons';
 
-// const Tab = createBottomTabNavigator();
 const Tab = createMaterialBottomTabNavigator();
 
 const MainTabScreen = () => (
@@ -32,7 +31,7 @@ const MainTabScreen = () => (
             component={HomeStackScreen}
             options={{
               tabBarLabel: 'Home',
-              tabBarColor: '#0B0A0A',
+              tabBarColor: '#276891',
               tabBarIcon: ({ color, size }) => (
                 <FontAwesomeIcon icon={ faHome} color={color} size={20} />
               ),
@@ -43,7 +42,7 @@ const MainTabScreen = () => (
             component={DetailsStackScreen}
             options={{
               tabBarLabel: 'Details',
-              tabBarColor: '#2B2727',
+              tabBarColor: '#276891',
               tabBarIcon: ({ color, size }) => (
                 <FontAwesomeIcon icon={ faInfoCircle} color={color} size={20} />
               ),
@@ -55,7 +54,7 @@ const MainTabScreen = () => (
             component={ShopStackScreen}
             options={{
               tabBarLabel: 'Cart',
-              tabBarColor: '#564E4E',
+              tabBarColor: '#276891',
               tabBarIcon: ({ color, size }) => (
                 <FontAwesomeIcon icon={ faShoppingCart} color={color} size={20} />
               ),
@@ -67,7 +66,7 @@ const MainTabScreen = () => (
             component={ArStackScreen}
             options={{
               tabBarLabel: 'Try It',
-              tabBarColor: '#8F8F8F',
+              tabBarColor: '#276891',
               tabBarIcon: ({ color, size }) => (
                 <FontAwesomeIcon icon={ faVrCardboard} color={color}  size={20} />
               ),
@@ -88,7 +87,7 @@ const ShopStack = createStackNavigator();
 const HomeStackScreen = ({navigation}) => (
     <HomeStack.Navigator screenOptions={{
         headerStyle: {
-          backgroundColor: '#0B0A0A'
+          backgroundColor: '#276891'
         }, 
         headerTintColor: '#fff',
         headerTitleStyle: {
@@ -108,7 +107,7 @@ const HomeStackScreen = ({navigation}) => (
   const DetailsStackScreen = ({navigation}) => (
     <DetailsStack.Navigator screenOptions={{
         headerStyle: {
-          backgroundColor: '#2B2727'
+          backgroundColor: '#276891'
         }, 
         headerTintColor: '#fff',
         headerTitleStyle: {
@@ -124,9 +123,9 @@ const HomeStackScreen = ({navigation}) => (
   const ArStackScreen = ({navigation}) => (
     <ArStack.Navigator screenOptions={{
         headerStyle: {
-          backgroundColor: '#8F8F8F'
+          backgroundColor: '#276891'
         }, 
-        headerTintColor: '#0A0A0A',
+        headerTintColor: '#fff',
         // inactiveColor: '#0A0A0A',
         headerTitleStyle: {
           fontWeight: 'bold'
@@ -139,7 +138,7 @@ const HomeStackScreen = ({navigation}) => (
   const ShopStackScreen = ({navigation}) => (
     <ShopStack.Navigator screenOptions={{
         headerStyle: {
-          backgroundColor: '#564E4E'
+          backgroundColor: '#276891'
         }, 
         headerTintColor: '#fff',
         headerTitleStyle: {

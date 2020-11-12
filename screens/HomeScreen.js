@@ -1,41 +1,38 @@
 
-import React, {useReducer, useContext, useState, useEffect} from 'react'
-import { Component } from 'react';
+import React, {useReducer, useContext, useState, useEffect, Component} from 'react'
+// import { Component } from 'react';
 import { View, ActivityIndicator, ScrollView, FlatList, Text, Button, ImageBackground, StyleSheet, Image, Dimensions } from 'react-native';
+// import { NativeRouter, Route, Link } from "react-router-native";
+import DetailsScreen from './DetailsScreen';
+import 'url-search-params-polyfill';
 // import { Item } from 'react-native-paper/lib/typescript/src/components/List/List';
+import { NativeRouter, Route, Link, match } from "react-router-native";
+import { User, Lock, CheckCircle, EyeOff, Eye, CheckSquare, ShoppingCart, Home} from "react-native-feather";
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import ShopScreen from './ShopScreen'
 
 
-// const HomeScreen = ({navigation}) => {
-//     const baseURL = "http://localhost:3000"
-    
-//     // const [isLoading, setLoading] = useState(true);
-//     const [data, setData] = useState(null);
-    
-//     useEffect(() => {
-//       console.log('data')
-//       getData()
-//       console.log({data})
-//     },[])
+// const initialState={
+//   counter:0,
+//   items: [],
+  
+//   }
 
-//     // const getData = async () => {
-//     //   console.log("hello word")
-//     //   await fetch("http://localhost:3000/watches")
-//     //   .then(response => response.json())
-//     //   .then(result => setData(result))
-//     //   // .catch((error) => console.error(error))
-//     // }
+// export default (state=initialState, action)=>{
 
-//     const getData = async () => {
-//       console.log("hello word")
-//       try {
-//         let response = await fetch("http://localhost:3000/watches");
-//         let json = await response.json();
-//         setData(json);
-//       } catch (error) {
-//         console.error(error)
-//       }
-//     }
+//   switch (action.type) {
+//       case 'ADD':
+//           return {counter:state.counter+1, items: [...state.items, action.payload.item]}
+//           break;
+//       case 'REMOVE':
+//            return something
+//           break; 
+//       default:
+//           return state;
+//   }}
 
+
+let array = []
 export default class HomeScreen extends Component {
   _isMounted = false;
   constructor(props) {
@@ -43,11 +40,14 @@ export default class HomeScreen extends Component {
 
     this.state = {
       data: [],
+      price: [],
       isLoading: true
     };
+    // console.log(this.state.price)
   }
 
   componentDidMount() {
+  
     this._isMounted = true;
     fetch('http://localhost:3000/watches')
       .then((response) => response.json())
@@ -59,32 +59,48 @@ export default class HomeScreen extends Component {
         this.setState({ isLoading: false });
       });
   }
+  
 
-    render() {
-      const { data, isLoading } = this.state;
-      return (
+
+  render() {
+    const { data, isLoading } = this.state;
+    return (
+      <NativeRouter>
         <View style={styles.container}>  
           {isLoading ? <ActivityIndicator/> : (
           <FlatList
+          
             data={data} 
             keyExtractor={({image}) => image}
-            renderItem={({ item }) => (
-              <ScrollView>
+            renderItem={({ item }) => (    
+              <ScrollView>    
                 <View style={styles.header}>
-                    <Image 
-                      style={styles.logo}
-                      source={{uri: item.image}}
-                      resizeMode={'cover'}
-                    />
-                    <Text style={styles.text}>${item.price}</Text>
+                    <Link to={`/${item.id}`}>
+                      <Image 
+                        style={styles.logo}
+                        source={{uri: item.image}}
+                        resizeMode={'cover'}
+                      />
+                    </Link>
+                    <Text style={styles.text} >Price: ${item.price}</Text>
                 </View>
               </ScrollView>
             )}
           />
           )}
         </View>
-      )
-    }
+        <Route path="/:id" component={DetailsScreen} />
+        {/* <Route path="/:id" component={ShopScreen} /> */}
+        {/* <Route
+          exact
+          path="/:id"
+          render={(props) => (
+            <DetailsScreen {...props} />
+          )}
+        /> */}
+      </NativeRouter>
+    )
+  }
   }
 
 const {height} = Dimensions.get("screen");
@@ -100,6 +116,10 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center'
 
+  },
+  nav: {
+    flexDirection: "row",
+    justifyContent: "space-around"
   },
   footer: {
       flex: 1,
@@ -206,3 +226,36 @@ const styles = StyleSheet.create({
 // </ScrollView>
 // )      
 // }
+
+// const HomeScreen = ({navigation}) => {
+//     const baseURL = "http://localhost:3000"
+    
+//     // const [isLoading, setLoading] = useState(true);
+//     const [data, setData] = useState(null);
+    
+//     useEffect(() => {
+//       console.log('data')
+//       getData()
+//       console.log({data})
+//     },[])
+
+//     // const getData = async () => {
+//     //   console.log("hello word")
+//     //   await fetch("http://localhost:3000/watches")
+//     //   .then(response => response.json())
+//     //   .then(result => setData(result))
+//     //   // .catch((error) => console.error(error))
+//     // }
+
+//     const getData = async () => {
+//       console.log("hello word")
+//       try {
+//         let response = await fetch("http://localhost:3000/watches");
+//         let json = await response.json();
+//         setData(json);
+//       } catch (error) {
+//         console.error(error)
+//       }
+//     }
+
+// onPress={() => {this.props.navigation.navigate('Details')}}

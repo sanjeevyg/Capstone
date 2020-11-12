@@ -9,6 +9,7 @@ import ProfileScreen from './screens/ProfileScreen';
 import SignInScreen from './screens/SignInScreen';
 import RootStackScreen from './screens/RootStackScreen';
 import { set } from 'react-native-reanimated';
+import { NativeRouter, Route, Link } from "react-router-native";
 
 const Drawer = createDrawerNavigator();
 

@@ -1,12 +1,12 @@
 import React, {useContext} from 'react';
-import { View, Text, Button, StyleSheet, TextInput, TouchableOpacity, } from 'react-native';
+import { View, Text, Button, StyleSheet, TextInput, TouchableOpacity} from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import { useTheme } from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
 import { User, Lock, CheckCircle, EyeOff, Eye, CheckSquare} from "react-native-feather";
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faUserAlt, faCheckCircle, faBars, faSignOutAlt, faHome, faInfoCircle, faUserCircle, faVrCardboard, faShoppingCart, faAlignJustify } from '@fortawesome/free-solid-svg-icons';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+// import AsyncStorage from '@react-native-async-storage/async-storage';
 import {UserContext} from '../App'
 
 
@@ -79,33 +79,33 @@ const SignInScreen = ({navigation}) => {
     };
 
    
-    const storeData = async (token) => {
-      try {
-        await AsyncStorage.setItem('@storage_Key', token)
-      } catch (e) {
-        console.log(e)
-      }
-    }
+    // const storeData = async (token) => {
+    //   try {
+    //     await AsyncStorage.setItem('@storage_Key', token)
+    //   } catch (e) {
+    //     console.log(e)
+    //   }
+    // }
 
-    const getData = async () => {
-      try {
-        const token = await AsyncStorage.getItem('@storage_Key')
-        if( token!== null) {
-          console.log(token)
-          return token
-        }
-      } catch(e) {
-        console.log(e)
-      }
-    }
+    // const getData = async () => {
+    //   try {
+    //     const token = await AsyncStorage.getItem('@storage_Key')
+    //     if( token!== null) {
+    //       console.log(token)
+    //       return token
+    //     }
+    //   } catch(e) {
+    //     console.log(e)
+    //   }
+    // }
 
-    const newToken = getData()
+    // const newToken = getData()
 
 
-    const updateToken = () => {
-      signIn()
-      setNewUserToken({token: newToken})
-    }
+    // const updateToken = () => {
+    //   signIn()
+    //   setNewUserToken({token: newToken})
+    // }
 
     return (
       <View style={styles.container} >

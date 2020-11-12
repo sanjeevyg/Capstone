@@ -6,7 +6,7 @@ import { Avatar, Title, Caption, Paragraph, Drawer, Text, TouchableRipple, Switc
 import { DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 import { CardStyleInterpolators } from '@react-navigation/stack';
 import {UserContext} from '../App';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+// import AsyncStorage from '@react-native-async-storage/async-storage';
 import RootStackScreen from './RootStackScreen';
 import SplashScreen from './SplashScreen';
 
@@ -26,7 +26,7 @@ export function DrawerContent(props) {
     }
 
     const handleSignOut = () => {
-      AsyncStorage.removeItem("userToken")
+      // AsyncStorage.removeItem("userToken")
       setNewUserToken({token: null})
       console.log(userToken)
       props.navigation.navigate('SignInScreen')

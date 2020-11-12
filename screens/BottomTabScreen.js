@@ -11,7 +11,7 @@ import ArScreen from './ArScreen'
 import ShopScreen from './ShopScreen'
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faBars, faSignOutAlt,  faHome, faInfoCircle, faUserCircle, faVrCardboard, faShoppingCart, faAlignJustify } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faSignOutAlt,  faHome, faInfoCircle, faUserCircle, faVrCardboard, faShoppingCart, faAlignJustify, faCreditCard } from '@fortawesome/free-solid-svg-icons';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -53,12 +53,11 @@ const MainTabScreen = () => (
             name="Shop"
             component={ShopStackScreen}
             options={{
-              tabBarLabel: 'Cart',
+              tabBarLabel: 'Pay',
               tabBarColor: '#276891',
               tabBarIcon: ({ color, size }) => (
-                <FontAwesomeIcon icon={ faShoppingCart} color={color} size={20} />
+                <FontAwesomeIcon icon={ faCreditCard} color={color} size={20} />
               ),
-              tabBarBadge: 1,
             }}
           />
           <Tab.Screen

@@ -117,8 +117,6 @@ const HomeStackScreen = ({navigation}) => (
     </DetailsStack.Navigator>
   )
 
-
-
   const ArStackScreen = ({navigation}) => (
     <ArStack.Navigator screenOptions={{
         headerStyle: {
@@ -130,7 +128,7 @@ const HomeStackScreen = ({navigation}) => (
           fontWeight: 'bold'
         }
       }}>
-      <ArStack.Screen name="Explore" component={ArScreen} options={{title: 'Augmented Reality Page'}} />
+      <ArStack.Screen name="Explore" component={ArScreen} options={{title: 'Augmented Reality'}} />
     </ArStack.Navigator>
   )
 

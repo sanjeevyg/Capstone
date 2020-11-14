@@ -7,8 +7,9 @@ import HomeScreen from './HomeScreen'
 import ShopScreen from './ShopScreen'
 
 
-const DetailsScreen = ({match, props}) => {
-  const id = match.params.id 
+const DetailsScreen = (props) => {
+  console.log(props)
+  const id = props.match.params.id 
   const [data, setData] = useState([]);
   const [price, setPrice] = useState([0]);
   const [count, setCount] = useState([0]);

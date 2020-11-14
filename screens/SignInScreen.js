@@ -6,21 +6,25 @@ import LinearGradient from 'react-native-linear-gradient';
 import { User, Lock, CheckCircle, EyeOff, Eye, CheckSquare} from "react-native-feather";
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faUserAlt, faCheckCircle, faBars, faSignOutAlt, faHome, faInfoCircle, faUserCircle, faVrCardboard, faShoppingCart, faAlignJustify } from '@fortawesome/free-solid-svg-icons';
-// import AsyncStorage from '@react-native-async-storage/async-storage';
-import {UserContext} from '../App'
+import AsyncStorage from '@react-native-async-storage/async-storage';
+// import {UserContext} from '../App'
+import { AuthContext } from '../components/context';
 
 
 const SignInScreen = ({navigation}) => {
-
-    const [token, setNewUserToken] = useContext(UserContext)
+    // const [token, setNewUserToken] = useContext(UserContext)
     const baseURL = "http://localhost:3000"
 
     const [userInfo, setUserInfo] = React.useState({
       username:'',
       password:'',
       textInputStatus: false,
-      secureTextEntry: true
+      secureTextEntry: true,
+      isValidUser: true,
+      isValidPassword: true,
     })
+
+    const { signIn} = React.useContext(AuthContext);
 
     const handleUsernameChange = (val) => {
       if (val.length > 0) {
@@ -43,7 +47,6 @@ const SignInScreen = ({navigation}) => {
         setUserInfo({
           ...userInfo,
           password: val
-          // textInputStatus: true
          })
       } else {
         setUserInfo({
@@ -67,7 +70,7 @@ const SignInScreen = ({navigation}) => {
       password: userInfo.password
     }
 
-    const signIn = () => {
+    const getToken = () => {
       fetch(`${baseURL}/login`, {
         method: "POST", 
         headers: {
@@ -75,37 +78,12 @@ const SignInScreen = ({navigation}) => {
         }, 
         body: JSON.stringify(userSignInfo)
       }).then(response => response.json())
-        .then(result => storeData(result.token)) 
+        .then(result => {
+          console.log(result)
+          signIn(result)
+        }) 
     };
 
-   
-    // const storeData = async (token) => {
-    //   try {
-    //     await AsyncStorage.setItem('@storage_Key', token)
-    //   } catch (e) {
-    //     console.log(e)
-    //   }
-    // }
-
-    // const getData = async () => {
-    //   try {
-    //     const token = await AsyncStorage.getItem('@storage_Key')
-    //     if( token!== null) {
-    //       console.log(token)
-    //       return token
-    //     }
-    //   } catch(e) {
-    //     console.log(e)
-    //   }
-    // }
-
-    // const newToken = getData()
-
-
-    // const updateToken = () => {
-    //   signIn()
-    //   setNewUserToken({token: newToken})
-    // }
 
     return (
       <View style={styles.container} >
@@ -132,7 +110,7 @@ const SignInScreen = ({navigation}) => {
               </View>
             </View>
             <View>
-                <TouchableOpacity onPress={updateToken}>
+                <TouchableOpacity onPress={getToken}>
                   <LinearGradient colors={['#276891', '#1B4965']} style={styles.signIn}>
                       <Text style={[styles.textSign, { color: 'white'}]}>Sign In</Text>
                   </LinearGradient>

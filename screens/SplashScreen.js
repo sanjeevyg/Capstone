@@ -23,7 +23,7 @@ const SplashScreen = ({navigation}) => {
             <Animatable.Image 
                 animation="bounceIn"
                 duraton="1500"
-                source={require('../Images/logo.png')}
+                source={require('../Images/WatchualFinal.png')}
                 style={styles.logo}
                 resizeMode="stretch"
             />
@@ -36,7 +36,7 @@ const SplashScreen = ({navigation}) => {
         >
             <Text style={[styles.title, {
                 color: colors.text
-            }]}>Get yourself a watch!</Text>
+            }]}>It's your time to shine!</Text>
             <Text style={styles.text}>Sign in with account</Text>
             <View style={styles.button}>
             <TouchableOpacity onPress={()=>navigation.navigate('SignInScreen')} style={styles.getStarted}>
@@ -84,10 +84,10 @@ const styles = StyleSheet.create({
       paddingHorizontal: 30
   },
   logo: {
-      width: height_logo*1.2,
+      width: height_logo,
       height: height_logo,
-      marginLeft: 20
-    //   borderRadius: height_logo/2
+      marginLeft: 20,
+      borderRadius: height_logo/2
   },
   title: {
       color: '#05375a',

@@ -136,14 +136,7 @@ const ShopScreen = ({navigation}) => {
                     <TextInput placeholder="253" style={styles.textInput} onChangeText={(val)=>handleNameChange(val)} autoCapitalize='none'/>
                     {userInfo.nameInputStatus ? <CheckCircle stroke="#276891" fill="#fff" width={19} height={19} /> : null}
                   </View>
-                  <View>
-                  <Text style={styles.text_footer}>CVC</Text>
-                  <View style={styles.username}>
-                    {/* <UserPlus stroke="#05375a" fill="#fff" width={23} height={23} />   */}
-                    <TextInput placeholder="253" style={styles.textInput} onChangeText={(val)=>handleUsernameChange(val)} autoCapitalize='none'/>
-                    {userInfo.userNameInputStatus ? <CheckCircle stroke="#276891" fill="#fff" width={19} height={19} /> : null}
-                  </View>
-                  </View>
+                 
             </View> 
 
             <View>

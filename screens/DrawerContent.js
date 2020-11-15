@@ -11,21 +11,11 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import RootStackScreen from './RootStackScreen';
 import SplashScreen from './SplashScreen';
 
-
-
-
 export function DrawerContent(props) {
 
     let pic = {uri: "https://static.wikia.nocookie.net/civilization/images/5/53/Genghis_Khan_%28Civ6%29.png/revision/latest/top-crop/width/360/height/360?cb=20200930125057"}
 
-
-    const[isDarkTheme, setIsDarkTheme] = React.useState(false);
-    // const toggleTheme = () => {
-    //     setIsDarkTheme(!isDarkTheme)
-    // }
-
     const paperTheme = useTheme()
-
     const {signOut, toggleTheme} = React.useContext(AuthContext);
 
     const handleSignOut = () => {

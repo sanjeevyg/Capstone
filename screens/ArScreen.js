@@ -1,9 +1,6 @@
 
 import * as React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
-// import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
-
-
 
 const ArScreen = ({navigation}) => {
  

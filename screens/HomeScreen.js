@@ -9,26 +9,6 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import ShopScreen from './ShopScreen'
 
 
-// const initialState={
-//   counter:0,
-//   items: [],
-  
-//   }
-
-// export default (state=initialState, action)=>{
-
-//   switch (action.type) {
-//       case 'ADD':
-//           return {counter:state.counter+1, items: [...state.items, action.payload.item]}
-//           break;
-//       case 'REMOVE':
-//            return something
-//           break; 
-//       default:
-//           return state;
-//   }}
-
-
 let array = []
 export default class HomeScreen extends Component {
   _isMounted = false;

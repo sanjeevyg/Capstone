@@ -1,5 +1,4 @@
 import * as React from 'react';
-// import { View, Text, Button, StyleSheet } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import SplashScreen from './SplashScreen';

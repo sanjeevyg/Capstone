@@ -140,20 +140,16 @@ const styles = StyleSheet.create({
   text: {
       color: 'grey',
       marginTop: 5,
-      // textAlign:'right'
       marginLeft: -30
   },
   firstText: {
       color: 'grey',
       marginTop: 110,
-      // textAlign:'right'
+  
       marginLeft: -30
   },
   total: {
     color: '#05375a',
-    // marginTop: 100,
-    // textAlign:'right'
-    // marginLeft: -30,
     fontSize: 20,
   },
   button: {

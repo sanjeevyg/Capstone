@@ -20,7 +20,6 @@ export default class HomeScreen extends Component {
       price: [],
       isLoading: true
     };
-    // console.log(this.state.price)
   }
 
   componentDidMount() {

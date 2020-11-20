@@ -131,7 +131,6 @@ const ShopScreen = ({navigation}) => {
             <Text style={styles.text_footer}>CARD NUMBER               CVC</Text>
             <View styles={styles.card}>
                   <View style={styles.username}>
-                    {/* <User stroke="#05375a" fill="#fff" width={23} height={23} />   */}
                     <TextInput placeholder="Card Number" style={styles.textInput} onChangeText={(val)=>handleNameChange(val)} autoCapitalize='none'/>
                     <TextInput placeholder="253" style={styles.textInput} onChangeText={(val)=>handleNameChange(val)} autoCapitalize='none'/>
                     {userInfo.nameInputStatus ? <CheckCircle stroke="#276891" fill="#fff" width={19} height={19} /> : null}

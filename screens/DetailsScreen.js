@@ -42,7 +42,6 @@ const DetailsScreen = (props) => {
 
   return (    
       <View style={styles.container}> 
-        {/* <Link component={ShopScreen}> ShopScreen </Link> */}
         <View >
           <Image
             style={styles.logo}

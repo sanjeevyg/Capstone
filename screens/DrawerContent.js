@@ -13,7 +13,7 @@ import SplashScreen from './SplashScreen';
 
 export function DrawerContent(props) {
 
-    // let pic = {uri: "https://static.wikia.nocookie.net/civilization/images/5/53/Genghis_Khan_%28Civ6%29.png/revision/latest/top-crop/width/360/height/360?cb=20200930125057"}
+    let pic = {uri: "https://static.wikia.nocookie.net/civilization/images/5/53/Genghis_Khan_%28Civ6%29.png/revision/latest/top-crop/width/360/height/360?cb=20200930125057"}
 
     const paperTheme = useTheme()
     const {signOut, toggleTheme} = React.useContext(AuthContext);

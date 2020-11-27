@@ -115,10 +115,10 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       marginRight: 15,
     },
-    paragraph: {
-      fontWeight: 'bold',
-      marginRight: 3,
-    },
+    // paragraph: {
+    //   fontWeight: 'bold',
+    //   marginRight: 3,
+    // },
     drawerSection: {
       marginTop: 15,
     },
